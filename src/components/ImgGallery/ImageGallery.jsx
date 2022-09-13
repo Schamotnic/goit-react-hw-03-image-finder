@@ -23,5 +23,6 @@ export default ImageGallery;
 
 
 ImageGallery.propTypes={
-    showQuery:PropTypes.arrayOf(PropTypes.object).isRequired
+    showQuery:PropTypes.arrayOf(PropTypes.object).isRequired,
+    id:PropTypes.number
 }

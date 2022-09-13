@@ -71,12 +71,15 @@ class App extends Component {
 
 
     handleFormSubmit = searchObject => {
-        this.setState({
+        if(searchObject !== this.state.searchObject)
+        {this.setState({
           searchObject:searchObject,
             currentPage:1,
             hits:[],
             error:null
-        })
+        })}
+             
+       
     }
 
     toggleModal = () => {

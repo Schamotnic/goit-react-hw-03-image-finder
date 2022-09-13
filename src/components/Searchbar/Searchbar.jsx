@@ -2,12 +2,17 @@
 import {Component} from 'react';
 import {ImSearch} from 'react-icons/im'
 import {DivSearchBar,FormStyle,ButtonStyle,SpanStyle,InputStyle} from './SearchBarStyle'
-  
+import PropTypes from 'prop-types';
  class  Searchbar extends Component {
 
   state={
     query:'',
   }
+
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};
+
 
    handelNameChange = event =>{
      this.setState({  query:event.currentTarget.value.toLowerCase()});
@@ -15,12 +20,13 @@ import {DivSearchBar,FormStyle,ButtonStyle,SpanStyle,InputStyle} from './SearchB
 
    handleSubmit = event =>{
     event.preventDefault();
-if(this.state.query.trim()=== ''){
+if(this.state.query.trim()=== '' ){
   alert('Введіть пошук фото')
   return;
 }
+
     this.props.onSubmit(this.state.query);
-    this.setState({query:''});
+    // this.setState({query:''});
    }
 
    render(){
